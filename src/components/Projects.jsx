@@ -47,75 +47,98 @@ export default function Projects() {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-white">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-slate-900 mb-12">Featured Projects</h2>
+    <section id="projects" className="py-24 bg-gradient-to-b from-slate-50 via-white to-primary-50 relative">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-40 -left-40 w-96 h-96 bg-gradient-primary rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="mb-16 animate-fade-in-up">
+          <h2 className="section-title text-4xl md:text-5xl mb-4">Featured Projects</h2>
+          <div className="w-20 h-1 bg-gradient-primary rounded-full"></div>
+        </div>
 
         <div className="space-y-12">
           {projects.map((project, index) => (
-            <div key={index} className="bg-slate-50 rounded-xl border border-slate-200 p-8">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
-                <h3 className="text-2xl font-bold text-slate-900 mb-2">{project.title}</h3>
-                <a
-                  href={project.liveLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-slate-600 hover:text-slate-900 transition-colors"
-                >
-                  <ExternalLink className="w-5 h-5" />
-                  <span className="font-medium">View Live</span>
-                </a>
-              </div>
+            <div
+              key={index}
+              className="bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-primary-100 shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden card-hover animate-fade-in-up"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <div className="h-1 bg-gradient-primary"></div>
 
-              <p className="text-lg text-slate-700 mb-6 leading-relaxed">{project.description}</p>
-
-              <div className="space-y-6">
-                <div>
-                  <h4 className="font-semibold text-slate-900 mb-2">Problem Statement</h4>
-                  <p className="text-slate-700 leading-relaxed">{project.problem}</p>
+              <div className="p-8">
+                <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-4">
+                  <h3 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-primary-700 to-accent-500 bg-clip-text text-transparent">
+                    {project.title}
+                  </h3>
+                  <a
+                    href={project.liveLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-primary text-white rounded-lg hover:shadow-glow-primary transition-all duration-300 hover:scale-105 whitespace-nowrap font-medium"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    View Live
+                  </a>
                 </div>
 
-                <div>
-                  <h4 className="font-semibold text-slate-900 mb-2">Solution</h4>
-                  <p className="text-slate-700 leading-relaxed">{project.solution}</p>
-                </div>
+                <p className="text-lg text-gray-700 mb-8 leading-relaxed">{project.description}</p>
 
-                <div>
-                  <h4 className="font-semibold text-slate-900 mb-2">Key Features</h4>
-                  <ul className="space-y-1">
-                    {project.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-slate-700">
-                        <span className="text-slate-400 mt-1">•</span>
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-primary-100">
+                    <h4 className="font-bold text-primary-700 mb-3 text-sm uppercase tracking-wide">Problem</h4>
+                    <p className="text-gray-700 text-sm leading-relaxed">{project.problem}</p>
+                  </div>
 
-                <div>
-                  <h4 className="font-semibold text-slate-900 mb-2">Tech Stack</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {project.techStack.map((tech, idx) => (
-                      <span
-                        key={idx}
-                        className="px-3 py-1 bg-white text-slate-700 rounded-lg text-sm border border-slate-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                  <div className="bg-white/50 backdrop-blur-sm rounded-xl p-4 border border-accent-100">
+                    <h4 className="font-bold text-accent-600 mb-3 text-sm uppercase tracking-wide">Solution</h4>
+                    <p className="text-gray-700 text-sm leading-relaxed">{project.solution}</p>
                   </div>
                 </div>
 
-                <div>
-                  <h4 className="font-semibold text-slate-900 mb-2">Key Learnings</h4>
-                  <ul className="space-y-1">
-                    {project.learnings.map((learning, idx) => (
-                      <li key={idx} className="flex items-start gap-3 text-slate-700">
-                        <span className="text-slate-400 mt-1">•</span>
-                        <span>{learning}</span>
-                      </li>
-                    ))}
-                  </ul>
+                <div className="mt-8 space-y-6">
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                      <span className="text-primary-600">★</span> Key Features
+                    </h4>
+                    <ul className="grid md:grid-cols-2 gap-2">
+                      {project.features.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-gray-700">
+                          <span className="text-primary-500 mt-1 font-bold">+</span>
+                          <span className="text-sm">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-3">Tech Stack</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.techStack.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="px-4 py-2 bg-gradient-to-r from-primary-100 to-primary-50 text-primary-700 rounded-full text-xs font-semibold border border-primary-200 hover:shadow-md transition-all duration-300 hover:scale-110"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h4 className="font-bold text-gray-900 mb-3 flex items-center gap-2">
+                      <Code className="w-4 h-4 text-success-600" /> Key Learnings
+                    </h4>
+                    <ul className="space-y-2">
+                      {project.learnings.map((learning, idx) => (
+                        <li key={idx} className="flex items-start gap-3 text-gray-700">
+                          <span className="text-success-500 mt-1 font-bold">•</span>
+                          <span className="text-sm">{learning}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               </div>
             </div>

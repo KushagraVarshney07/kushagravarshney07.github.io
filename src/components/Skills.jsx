@@ -1,3 +1,12 @@
+const categoryColors = {
+  "Languages": { bg: "from-blue-500/10 to-cyan-500/10", border: "border-blue-400", icon: "text-blue-600" },
+  "Backend": { bg: "from-violet-500/10 to-purple-500/10", border: "border-violet-400", icon: "text-violet-600" },
+  "Frontend": { bg: "from-rose-500/10 to-pink-500/10", border: "border-rose-400", icon: "text-rose-600" },
+  "Databases & Cloud": { bg: "from-emerald-500/10 to-teal-500/10", border: "border-emerald-400", icon: "text-emerald-600" },
+  "AI / ML": { bg: "from-amber-500/10 to-orange-500/10", border: "border-amber-400", icon: "text-amber-600" },
+  "Tools": { bg: "from-indigo-500/10 to-blue-500/10", border: "border-indigo-400", icon: "text-indigo-600" }
+};
+
 export default function Skills() {
   const skillCategories = [
     {
@@ -59,25 +68,45 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-20 bg-slate-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-slate-900 mb-12">Technical Skills</h2>
+    <section id="skills" className="py-24 bg-gradient-to-b from-white to-slate-50 relative">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-cool rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-primary rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+      </div>
+
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="mb-16 animate-fade-in-up">
+          <h2 className="section-title text-4xl md:text-5xl mb-4">Technical Skills</h2>
+          <div className="w-20 h-1 bg-gradient-primary rounded-full"></div>
+        </div>
 
         <div className="space-y-8">
-          {skillCategories.map((category, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">{category.category}</h3>
-              <p className="text-slate-600 mb-6">{category.description}</p>
-              <div className="space-y-4">
-                {category.skills.map((skill, idx) => (
-                  <div key={idx} className="border-l-4 border-slate-300 pl-4">
-                    <h4 className="font-semibold text-slate-900 mb-1">{skill.name}</h4>
-                    <p className="text-slate-600 text-sm">{skill.usage}</p>
-                  </div>
-                ))}
+          {skillCategories.map((category, index) => {
+            const colors = categoryColors[category.category];
+            return (
+              <div
+                key={index}
+                className={`bg-gradient-to-br ${colors.bg} rounded-2xl border-l-4 ${colors.border} card-hover p-8 animate-fade-in-up`}
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="mb-6">
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{category.category}</h3>
+                  <p className="text-gray-600">{category.description}</p>
+                </div>
+                <div className="grid md:grid-cols-2 gap-6">
+                  {category.skills.map((skill, idx) => (
+                    <div
+                      key={idx}
+                      className="bg-white/70 backdrop-blur-sm rounded-xl p-4 transition-all duration-300 hover:bg-white hover:shadow-md hover:scale-105"
+                    >
+                      <h4 className={`font-bold text-lg mb-2 ${colors.icon}`}>{skill.name}</h4>
+                      <p className="text-gray-600 text-sm leading-relaxed">{skill.usage}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

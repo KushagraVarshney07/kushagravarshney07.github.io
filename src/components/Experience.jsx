@@ -1,4 +1,4 @@
-import { Briefcase, Calendar, MapPin } from 'lucide-react';
+import { Briefcase, Calendar, MapPin, Award } from 'lucide-react';
 
 export default function Experience() {
   const achievements = [
@@ -68,46 +68,60 @@ export default function Experience() {
   ];
 
   return (
-    <section id="experience" className="py-20 bg-slate-50">
-      <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-slate-900 mb-12">Experience</h2>
+    <section id="experience" className="py-24 bg-gradient-to-b from-white via-slate-50 to-white relative">
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -bottom-40 -right-40 w-96 h-96 bg-gradient-warm rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+      </div>
 
-        <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8 mb-12">
-          <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
+        <div className="mb-16 animate-fade-in-up">
+          <h2 className="section-title text-4xl md:text-5xl mb-4">Experience</h2>
+          <div className="w-20 h-1 bg-gradient-primary rounded-full"></div>
+        </div>
+
+        <div className="bg-gradient-to-br from-white to-primary-50 rounded-2xl border-2 border-primary-200 shadow-lg p-8 mb-12 animate-fade-in-up">
+          <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-4">
             <div>
-              <h3 className="text-2xl font-bold text-slate-900 mb-2">Full-Stack Developer</h3>
-              <div className="flex items-center gap-2 text-slate-600 mb-2">
-                <Briefcase className="w-5 h-5" />
-                <span className="text-xl font-semibold">Coffeee.io</span>
+              <h3 className="text-3xl font-bold text-primary-700 mb-3">Full-Stack Developer</h3>
+              <div className="flex items-center gap-3 text-gray-600 mb-2">
+                <Briefcase className="w-5 h-5 text-primary-600" />
+                <span className="text-xl font-semibold text-gray-800">Coffeee.io</span>
               </div>
             </div>
-            <div className="flex flex-col gap-2 text-slate-600 mt-4 md:mt-0 md:text-right">
-              <div className="flex items-center gap-2">
-                <Calendar className="w-4 h-4" />
-                <span>July 2024 – Present</span>
+            <div className="flex flex-col gap-3 text-gray-600 mt-4 md:mt-0 md:text-right bg-white/50 backdrop-blur-sm px-4 py-3 rounded-lg">
+              <div className="flex items-center gap-2 justify-start md:justify-end">
+                <Calendar className="w-4 h-4 text-primary-600" />
+                <span className="font-semibold text-gray-800">July 2024 – Present</span>
               </div>
-              <div className="flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                <span>Gurgaon, India</span>
+              <div className="flex items-center gap-2 justify-start md:justify-end">
+                <MapPin className="w-4 h-4 text-primary-600" />
+                <span className="font-semibold text-gray-800">Gurgaon, India</span>
               </div>
             </div>
           </div>
 
-          <p className="text-lg text-slate-700 mb-8 leading-relaxed">
+          <p className="text-lg text-gray-700 mb-4 leading-relaxed">
             Engineering AI-driven recruitment and assessment systems that handle real-world hiring workflows.
             Focus on building scalable backend architectures, async processing pipelines, and production-grade features.
           </p>
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           {achievements.map((achievement, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
-              <h4 className="text-xl font-bold text-slate-900 mb-3">{achievement.title}</h4>
-              <p className="text-slate-700 mb-4 leading-relaxed">{achievement.description}</p>
-              <ul className="space-y-2">
+            <div
+              key={index}
+              className="bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-primary-100 shadow-md hover:shadow-xl transition-all duration-300 p-8 card-hover animate-fade-in-up"
+              style={{ animationDelay: `${(index + 1) * 0.1}s` }}
+            >
+              <div className="flex items-start gap-4 mb-4">
+                <Award className="w-6 h-6 text-primary-600 flex-shrink-0 mt-1" />
+                <h4 className="text-xl font-bold text-primary-700">{achievement.title}</h4>
+              </div>
+              <p className="text-gray-700 mb-4 leading-relaxed pl-10">{achievement.description}</p>
+              <ul className="space-y-2 pl-10">
                 {achievement.details.map((detail, idx) => (
-                  <li key={idx} className="flex items-start gap-3 text-slate-600">
-                    <span className="text-slate-400 mt-1">•</span>
+                  <li key={idx} className="flex items-start gap-3 text-gray-700">
+                    <span className="text-primary-500 font-bold mt-1">→</span>
                     <span>{detail}</span>
                   </li>
                 ))}
