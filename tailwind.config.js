@@ -1,6 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     extend: {
       colors: {
@@ -52,6 +53,19 @@ export default {
           800: '#92400e',
           900: '#78350f',
         },
+        dark: {
+          50: '#f9fafb',
+          100: '#f3f4f6',
+          200: '#e5e7eb',
+          300: '#d1d5db',
+          400: '#9ca3af',
+          500: '#6b7280',
+          600: '#4b5563',
+          700: '#374151',
+          800: '#1f2937',
+          900: '#111827',
+          950: '#030712',
+        },
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out',
@@ -59,12 +73,18 @@ export default {
         'fade-in-down': 'fadeInDown 0.7s ease-out',
         'slide-in-left': 'slideInLeft 0.8s ease-out',
         'slide-in-right': 'slideInRight 0.8s ease-out',
-        'float': 'float 3s ease-in-out infinite',
+        'float': 'float 4s ease-in-out infinite',
+        'float-slow': 'float 6s ease-in-out infinite',
         'pulse-glow': 'pulseGlow 2s ease-in-out infinite',
+        'pulse-glow-large': 'pulseGlowLarge 3s ease-in-out infinite',
         'shimmer': 'shimmer 2s infinite',
         'gradient-shift': 'gradientShift 3s ease infinite',
         'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite',
         'scale-in': 'scaleIn 0.5s ease-out',
+        'rotate-slow': 'rotateSlow 20s linear infinite',
+        'glow-pulse': 'glowPulse 3s ease-in-out infinite',
+        'slide-up': 'slideUp 0.8s ease-out',
+        'flip-in': 'flipIn 0.6s ease-out',
       },
       keyframes: {
         fadeIn: {
@@ -89,11 +109,15 @@ export default {
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
+          '50%': { transform: 'translateY(-25px)' },
         },
         pulseGlow: {
           '0%, 100%': { opacity: '1', boxShadow: '0 0 20px rgba(14, 165, 233, 0.5)' },
           '50%': { opacity: '0.7', boxShadow: '0 0 40px rgba(14, 165, 233, 0.3)' },
+        },
+        pulseGlowLarge: {
+          '0%, 100%': { opacity: '1', boxShadow: '0 0 40px rgba(14, 165, 233, 0.6), 0 0 80px rgba(14, 165, 233, 0.3)' },
+          '50%': { opacity: '0.8', boxShadow: '0 0 60px rgba(14, 165, 233, 0.4), 0 0 100px rgba(14, 165, 233, 0.2)' },
         },
         shimmer: {
           '0%': { backgroundPosition: '-1000px 0' },
@@ -111,17 +135,43 @@ export default {
           '0%': { opacity: '0', transform: 'scale(0.9)' },
           '100%': { opacity: '1', transform: 'scale(1)' },
         },
+        rotateSlow: {
+          '0%': { transform: 'rotate(0deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+        glowPulse: {
+          '0%, 100%': {
+            opacity: '0.8',
+            filter: 'drop-shadow(0 0 20px rgba(14, 165, 233, 0.6))'
+          },
+          '50%': {
+            opacity: '1',
+            filter: 'drop-shadow(0 0 40px rgba(14, 165, 233, 0.9))'
+          },
+        },
+        slideUp: {
+          '0%': { opacity: '0', transform: 'translateY(50px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        flipIn: {
+          '0%': { opacity: '0', transform: 'rotateY(90deg)' },
+          '100%': { opacity: '1', transform: 'rotateY(0deg)' },
+        },
       },
       backgroundImage: {
         'gradient-primary': 'linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%)',
         'gradient-accent': 'linear-gradient(135deg, #ef4444 0%, #f59e0b 100%)',
         'gradient-warm': 'linear-gradient(135deg, #f59e0b 0%, #f87171 100%)',
         'gradient-cool': 'linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%)',
+        'gradient-dark': 'linear-gradient(135deg, #1f2937 0%, #111827 100%)',
+        'gradient-dark-blue': 'linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%)',
       },
       boxShadow: {
         'glow-primary': '0 0 30px rgba(14, 165, 233, 0.4)',
         'glow-accent': '0 0 30px rgba(239, 68, 68, 0.4)',
+        'glow-lg': '0 0 60px rgba(14, 165, 233, 0.6)',
         'glass': '0 8px 32px rgba(31, 38, 135, 0.1)',
+        'glass-dark': '0 8px 32px rgba(0, 0, 0, 0.3)',
       },
       backdropBlur: {
         xs: '2px',

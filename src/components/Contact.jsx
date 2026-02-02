@@ -72,12 +72,13 @@ export default function Contact() {
                   href={info.link}
                   target={info.link.startsWith('http') ? '_blank' : undefined}
                   rel={info.link.startsWith('http') ? 'noopener noreferrer' : undefined}
-                  className="text-gray-700 hover:text-primary-600 transition-colors break-words font-semibold link-hover"
+                  className="text-gray-700 hover:text-primary-600 transition-colors break-all font-semibold link-hover text-sm md:text-base word-break"
+                  style={{ wordBreak: 'break-word', overflowWrap: 'break-word' }}
                 >
                   {info.value}
                 </a>
               ) : (
-                <span className="text-gray-700 font-semibold block">{info.value}</span>
+                <span className="text-gray-700 font-semibold block text-sm md:text-base">{info.value}</span>
               )}
             </div>
           ))}
