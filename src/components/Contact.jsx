@@ -40,7 +40,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-24 bg-gradient-to-b from-white via-primary-50 to-slate-50 relative overflow-hidden">
+    <section id="contact" className="py-24 bg-gradient-to-b from-white via-primary-50 to-slate-50 dark:from-dark-900 dark:via-dark-800 dark:to-dark-900 relative overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-accent rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
         <div className="absolute -top-40 -left-40 w-80 h-80 bg-gradient-primary rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
