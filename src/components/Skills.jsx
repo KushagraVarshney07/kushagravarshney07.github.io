@@ -68,10 +68,10 @@ export default function Skills() {
   ];
 
   return (
-    <section id="skills" className="py-24 bg-gradient-to-b from-white to-slate-50 relative">
+    <section id="skills" className="py-24 bg-gradient-to-b from-white to-slate-50 dark:from-dark-900 dark:to-dark-900 relative transition-colors duration-300">
       <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-cool rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
-        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-primary rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-gradient-cool rounded-full mix-blend-multiply filter blur-3xl opacity-10 dark:opacity-5"></div>
+        <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-gradient-primary rounded-full mix-blend-multiply filter blur-3xl opacity-10 dark:opacity-5"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
@@ -86,21 +86,21 @@ export default function Skills() {
             return (
               <div
                 key={index}
-                className={`bg-gradient-to-br ${colors.bg} rounded-2xl border-l-4 ${colors.border} card-hover p-8 animate-fade-in-up`}
+                className={`bg-gradient-to-br ${colors.bg} dark:bg-gradient-to-br dark:from-dark-800/50 dark:to-dark-800/30 rounded-2xl border-l-4 ${colors.border} dark:border-gray-700 card-hover p-8 animate-fade-in-up transition-colors duration-300`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="mb-6">
-                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">{category.category}</h3>
-                  <p className="text-gray-600">{category.description}</p>
+                  <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-2">{category.category}</h3>
+                  <p className="text-gray-600 dark:text-gray-400">{category.description}</p>
                 </div>
                 <div className="grid md:grid-cols-2 gap-6">
                   {category.skills.map((skill, idx) => (
                     <div
                       key={idx}
-                      className="bg-white/70 backdrop-blur-sm rounded-xl p-4 transition-all duration-300 hover:bg-white hover:shadow-md hover:scale-105"
+                      className="bg-white/70 dark:bg-dark-700/50 backdrop-blur-sm rounded-xl p-4 transition-all duration-300 hover:bg-white dark:hover:bg-dark-700 hover:shadow-md dark:hover:shadow-md dark:hover:shadow-primary-500/20 hover:scale-105"
                     >
                       <h4 className={`font-bold text-lg mb-2 ${colors.icon}`}>{skill.name}</h4>
-                      <p className="text-gray-600 text-sm leading-relaxed">{skill.usage}</p>
+                      <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed">{skill.usage}</p>
                     </div>
                   ))}
                 </div>

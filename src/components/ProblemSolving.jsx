@@ -32,18 +32,18 @@ export default function ProblemSolving() {
   ];
 
   return (
-    <section className="py-24 bg-gradient-to-b from-white via-primary-50 to-white relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-white via-primary-50 to-white dark:from-dark-900 dark:via-dark-800 dark:to-dark-900 relative overflow-hidden transition-colors duration-300">
       <div className="absolute inset-0">
-        <div className="absolute top-20 -right-40 w-80 h-80 bg-gradient-cool rounded-full mix-blend-multiply filter blur-3xl opacity-10"></div>
+        <div className="absolute top-20 -right-40 w-80 h-80 bg-gradient-cool rounded-full mix-blend-multiply filter blur-3xl opacity-10 dark:opacity-5"></div>
       </div>
 
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <div className="mb-16 animate-fade-in-up">
           <h2 className="section-title text-4xl md:text-5xl mb-4 flex items-center gap-3">
-            <Zap className="w-10 h-10 text-primary-600" />
+            <Zap className="w-10 h-10 text-primary-600 dark:text-primary-400" />
             Problem-Solving Approach
           </h2>
-          <p className="text-lg text-gray-700 mb-4 max-w-3xl leading-relaxed">
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-4 max-w-3xl leading-relaxed">
             Building production systems requires more than writing code. It demands clear thinking about trade-offs,
             thorough testing, and a commitment to delivering solutions that work in the real world.
           </p>
@@ -56,28 +56,28 @@ export default function ProblemSolving() {
             return (
               <div
                 key={index}
-                className="bg-gradient-to-br from-white to-slate-50 rounded-2xl border border-primary-100 shadow-md hover:shadow-lg transition-all duration-300 p-8 card-hover animate-fade-in-up"
+                className="bg-gradient-to-br from-white to-slate-50 dark:from-dark-800 dark:to-dark-800/50 rounded-2xl border border-primary-100 dark:border-primary-800 shadow-md hover:shadow-lg dark:hover:shadow-lg dark:hover:shadow-primary-500/20 transition-all duration-300 p-8 card-hover animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${colorGradient} flex items-center justify-center mb-5 shadow-md`}>
+                <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${colorGradient} flex items-center justify-center mb-5 shadow-md dark:shadow-lg dark:shadow-${colorGradient.split(' ')[1]}/30`}>
                   <approach.icon className="w-7 h-7 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{approach.title}</h3>
-                <p className="text-gray-700 leading-relaxed">{approach.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">{approach.title}</h3>
+                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">{approach.description}</p>
               </div>
             );
           })}
         </div>
 
-        <div className="bg-gradient-to-br from-primary-50 to-accent-50 rounded-2xl border-2 border-primary-200 shadow-lg p-8 md:p-12 animate-fade-in-up" style={{ animationDelay: '0.4s' }}>
-          <h3 className="text-2xl md:text-3xl font-bold text-primary-700 mb-6 flex items-center gap-3">
+        <div className="bg-gradient-to-br from-primary-50 to-accent-50 dark:from-dark-800/50 dark:to-dark-800/30 rounded-2xl border-2 border-primary-200 dark:border-primary-800 shadow-lg dark:shadow-lg dark:shadow-primary-500/20 p-8 md:p-12 animate-fade-in-up transition-colors duration-300" style={{ animationDelay: '0.4s' }}>
+          <h3 className="text-2xl md:text-3xl font-bold text-primary-700 dark:text-primary-400 mb-6 flex items-center gap-3">
             <Zap className="w-7 h-7" />
             Production-Ready Thinking
           </h3>
-          <p className="text-lg text-gray-700 leading-relaxed mb-6">
+          <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-6">
             I approach development with maturity and awareness of production constraints. This means:
           </p>
-          <ul className="space-y-3 text-gray-700">
+          <ul className="space-y-3 text-gray-700 dark:text-gray-300">
             {[
               "Anticipating edge cases and failure modes during design",
               "Writing defensive code that handles errors gracefully",
@@ -86,7 +86,7 @@ export default function ProblemSolving() {
               "Validating assumptions through testing before committing to implementations"
             ].map((item, idx) => (
               <li key={idx} className="flex items-start gap-4 text-lg">
-                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary-500 text-white font-bold text-sm flex-shrink-0 mt-0.5">
+                <span className="inline-flex items-center justify-center w-6 h-6 rounded-full bg-primary-500 dark:bg-primary-600 text-white font-bold text-sm flex-shrink-0 mt-0.5">
                   {idx + 1}
                 </span>
                 <span>{item}</span>
